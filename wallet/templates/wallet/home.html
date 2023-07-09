@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-wallet</title>
+</head>
+<body>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    
+    Username:{{user.username}} <br>
+    Wallet-Id:{{wallet.id}} <br>
+    Wallet-Balance:{{wallet.balance}} <br>
+
+    <form action="{% url 'wallet:transfer-fund' %}" method="post">
+        {% csrf_token %}
+        <input type="number" placeholder="wallet-id" name="wallet-id">
+        <input type="number" placeholder="balance" name="transfer-amount">
+        <button type="submit">Transfer</button>
+    </form>
+</body>
+</html>
