@@ -25,28 +25,29 @@ SECRET_KEY = 'django-insecure-zzx(^)o-x0hqva9z4+z_i@g@-n2l&(fwi4em#58dqtfx!a%*&5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["192.168.1.90","localhost"]
+ALLOWED_HOSTS = ["192.168.1.90","localhost","127.0.0.1"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    #apps
+    'wallet',
+    'account',
 
     'django.contrib.admin',
     'django.contrib.auth',
+
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    #apps
-    'wallet',
-    'account',
-
   
 
 ]
 
+AUTH_USER_MODEL = 'account.CustomUser'
 
 
 
@@ -126,11 +127,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    '/var/www/static/',
+]
 
-
-
-
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

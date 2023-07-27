@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-wallet</title>
-</head>
-<body>
+{% extends 'wallet/base.html' %}
+
+{% block title %}
+    Wallet
+{% endblock title %}
+  
+
+{% block content %}
 
     {% if messages %}
     <ul class="messages">
@@ -15,7 +15,14 @@
     </ul>
     {% endif %}
 
-    
+    <div class="main">
+        <div class="cover-pic">
+
+        </div>
+        
+    </div>
+
+
     Username:{{user.username}} <br>
     Wallet-Id:{{wallet.id}} <br>
     Wallet-Balance:{{wallet.balance}} <br>
@@ -26,5 +33,6 @@
         <input type="number" placeholder="balance" name="transfer-amount">
         <button type="submit">Transfer</button>
     </form>
-</body>
-</html>
+
+    
+{% endblock content %}

@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+
+    <title>test</title>
+
+    <link rel="stylesheet" href="{% static 'wallet/style.css' %}" />
+    <script
+      src="https://kit.fontawesome.com/74492ca796.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="bg-dark">
+    <div class="card-custom">
+      <div class="orange-box">
+        <div class="item-1">
+          <h5 class="greeting">Good Afternoon</h5>
+          <h3 id="username">Prakash Tajpuriya</h3>
+        </div>
+        <div class="item-2">
+          <div class="notification-box">
+            <i class="fa-solid fa-bell"></i>
+            <!-- <i class="fa-regular fa-bell"></i> -->
+          </div>
+          <div class="profile-pic">
+            <img src="{% static 'wallet/default-user.png' %}" alt="profile-pic" />
+          </div>
+        </div>
+      </div>
+      <div class="main-box">
+        <div class="search-box">
+          <input type="text" placeholder="Search" />
+        </div>
+
+        <div class="account-info">
+          <div class="info-up">
+            <p>WALLET ID</p>
+            <p id="wallet-id">{{ wallet.id_hash|slice:":4" }}*****{{ wallet.id_hash|slice:"-4:" }}</p>
+          </div>
+          <div class="info-down">
+            <p>Rs. {{wallet.balance}}</p>
+            <div class="eye-icon">
+              <i class="fa-solid fa-eye"></i>
+              <!-- <i class="fa-solid fa-eye-slash"></i> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="menu">
+          <div class="menu-item">
+            <div class="menu-item-icon">
+              <i class="fa-solid fa-receipt"></i>
+            </div>
+            <p class="menu-item-title">Statement</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-icon">
+              <i class="fa-regular fa-circle-user"></i>
+            </div>
+            <p class="menu-item-title">Accounts</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-icon">
+              <i class="fa-solid fa-coins"></i>
+            </div>
+            <p class="menu-item-title">Load Money</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-icon">
+              <i class="fa-solid fa-money-bill-transfer"></i>
+            </div>
+            <p class="menu-item-title">Send Money</p>
+          </div>
+        </div>
+        <div class="edit-menu">
+          <div class="edit-menu-center-item">
+            <div class="expand-down-icon">
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+          </div>
+          <div class="edit-menu-item">
+            <div class="edit-menu-icon">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </div>
+            <div>Edit Menu</div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-menu">
+        <div class="left-menu">
+          <div class="bottom-menu-item active">
+            <div class="bottom-menu-item-icon">
+              <i class="fa-solid fa-house"></i>
+            </div>
+            <div class="bottom-menu-item-text">Home</div>
+          </div>
+          <div class="bottom-menu-item">
+            <div class="bottom-menu-item-icon">
+              <i class="fa-solid fa-file-invoice-dollar"></i>
+            </div>
+            <div class="bottom-menu-item-text">Payments</div>
+          </div>
+        </div>
+        <div class="center-item">
+          <div class="bottom-menu-center-item">
+            <div class="bottom-menu-center-item-icon">
+              <i class="fa-solid fa-qrcode"></i>
+            </div>
+          </div>
+        </div>
+        <div class="right-menu">
+          <div class="bottom-menu-item">
+            <div class="bottom-menu-item-icon">
+              <i class="fa-solid fa-money-bill-transfer"></i>
+            </div>
+            <div class="bottom-menu-item-text">Send Money</div>
+          </div>
+          <div class="bottom-menu-item">
+            <div class="bottom-menu-item-icon">
+              <i class="fa-regular fa-circle-user"></i>
+            </div>
+            <div class="bottom-menu-item-text">Profile</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
